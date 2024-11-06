@@ -6,6 +6,7 @@ import model.programState.*;
 import model.types.BoolType;
 import model.values.BoolValue;
 import model.values.Value;
+import MyException.InvalidOperation;
 import MyException.MyException;
 
 public class IfStatement implements IStatement {
@@ -27,8 +28,8 @@ public class IfStatement implements IStatement {
      */
     @Override
     public String toString() {
-        return "(IF(" + this.exp.toString() + ") THEN (" + this.thenS.toString() + ") ELSE (" + this.elseS.toString()
-                + "))\n";
+        return " IF{" + this.exp.toString() + "} THEN {" + this.thenS.toString() + "} ELSE {" + this.elseS.toString()
+                + "}} ";
     }
 
     /*
@@ -38,7 +39,7 @@ public class IfStatement implements IStatement {
      * second branch(else) on the execution stack
      */
     @Override
-    public ProgramState execute(ProgramState state) throws MyException {
+    public ProgramState execute(ProgramState state) throws MyException, InvalidOperation {
         MyIDictionary<String, Value> dict = state.getSymbolTable();
         Value val = exp.eval(dict);
 

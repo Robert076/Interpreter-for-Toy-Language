@@ -2,6 +2,7 @@ package view;
 
 import java.util.Scanner;
 
+import MyException.InvalidOperation;
 import MyException.MyException;
 import controller.Controller;
 import model.dataStructures.myDictionary.MyDictionary;
@@ -14,9 +15,6 @@ import model.types.*;
 import model.values.*;
 
 public class View {
-    // print meniu
-    // run program
-    // start program
     Controller controller;
 
     public View(Controller _controller) {
@@ -50,6 +48,7 @@ public class View {
 
         Scanner scanner = new Scanner(System.in);
 
+        System.out.print("Your choice: ");
         Integer choice = Integer.parseInt(scanner.nextLine());
         scanner.close();
 
@@ -64,16 +63,17 @@ public class View {
             return;
         }
 
+        this.controller.setDisplayFlag(true);
+
         ProgramState prgState = new ProgramState(exeStack, symTable, out, programToRun);
 
         try {
             this.controller.setCurrentProgram(prgState);
-            controller.fullExecution();
+            this.controller.fullExecution();
         } catch (MyException e) {
             System.out.println(e.getMessage());
+        } catch (InvalidOperation e) {
+            System.out.println(e.getMessage());
         }
-
-        System.out.println(symTable);
-        System.out.println(out);
     }
 }

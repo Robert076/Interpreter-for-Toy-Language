@@ -16,7 +16,7 @@ public class NopStatement implements IStatement {
      */
     @Override
     public String toString() {
-        return "nop{}";
+        return " {nop} ";
     }
 
     /*
@@ -27,6 +27,6 @@ public class NopStatement implements IStatement {
      */
     @Override
     public ProgramState execute(ProgramState state) throws MyException {
-        return null;
+        return state;
     }
 }

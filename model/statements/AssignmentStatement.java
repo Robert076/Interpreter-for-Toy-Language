@@ -1,7 +1,8 @@
 package model.statements;
 
-import MyException.MyException;
 import model.expressions.*;
+import MyException.InvalidOperation;
+import MyException.MyException;
 import model.dataStructures.myDictionary.*;
 import model.values.*;
 import model.types.*;
@@ -24,7 +25,7 @@ public class AssignmentStatement implements IStatement {
      */
     @Override
     public String toString() {
-        return "AssignmentStatement{" + id + " = " + exp.toString() + "}\n";
+        return " AssignmentStatement{" + id + " = " + exp.toString() + "} ";
     }
 
     /*
@@ -38,7 +39,7 @@ public class AssignmentStatement implements IStatement {
      * Otherwise we raise exceptions
      */
     @Override
-    public ProgramState execute(ProgramState state) throws MyException {
+    public ProgramState execute(ProgramState state) throws MyException, InvalidOperation {
         MyIDictionary<String, Value> symTable = state.getSymbolTable();
 
         if (symTable.isDefined(id)) {
