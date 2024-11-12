@@ -21,7 +21,15 @@ public class CompoundStatement implements IStatement {
      */
     @Override
     public String toString() {
-        return " CompoundStatement{" + this.first.toString() + ";" + this.second.toString() + "} ";
+        return "CompoundStatement{" + this.first.toString() + ";" + this.second.toString() + "}";
+    }
+
+    public IStatement getFirst() {
+        return this.first;
+    }
+
+    public IStatement getSecond() {
+        return this.second;
     }
 
     /*
@@ -36,5 +44,10 @@ public class CompoundStatement implements IStatement {
         stack.push(second);
         stack.push(first);
         return state;
+    }
+
+    @Override
+    public CompoundStatement deepCopy() {
+        return new CompoundStatement(this.first, this.second);
     }
 }
