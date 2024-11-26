@@ -44,11 +44,12 @@ public class Repository implements IRepository {
         }
         PrintWriter logFile;
         try {
-            logFile = new PrintWriter(new BufferedWriter(new FileWriter(this.logFilePath, true)));
+            Boolean appendValue = true;
+            logFile = new PrintWriter(new BufferedWriter(new FileWriter(this.logFilePath, appendValue)));
         } catch (IOException e) {
             throw new MyException("Error opening log file!");
         }
-        logFile.println(this.programState.toString());
+        logFile.println(this.programState.toStringLog());
         logFile.close();
     }
 

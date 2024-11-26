@@ -1,10 +1,8 @@
-package model.dataStructures.myDictionary;
-
-import java.util.List;
+package model.dataStructures.myFileTable;
 
 import MyException.MyException;
 
-public interface MyIDictionary<K, V> {
+public interface MyIFileTable<K, V> {
     boolean isDefined(K key);
 
     V lookup(K key) throws MyException;
@@ -13,5 +11,5 @@ public interface MyIDictionary<K, V> {
 
     void update(K key, V val) throws MyException;
 
-    List<V> getValues();
+    void delete(K key) throws MyException;
 }

@@ -22,7 +22,7 @@ public class CloseRFile implements IStatement {
     public ProgramState execute(ProgramState state) throws MyException {
         Value val;
         try {
-            val = this.exp.eval(state.getSymbolTable());
+            val = this.exp.eval(state.getSymbolTable(), state.getHeap());
         } catch (MyException | InvalidOperation e) {
             throw new MyException(e.getMessage());
         }
@@ -45,13 +45,13 @@ public class CloseRFile implements IStatement {
             throw new MyException("Error closing file: " + e.getMessage());
         }
 
-        state.getFileTable().put(stringValue, null);
+        state.getFileTable().delete(stringValue);
 
         return state;
     }
 
     @Override
-    public CloseRFile deepCopy() {
+    public IStatement deepCopy() {
         return new CloseRFile(this.exp.deepCopy());
     }
 }

@@ -34,7 +34,7 @@ public class ReadFile implements IStatement {
         }
         Value fileNameVal;
         try {
-            fileNameVal = this.exp.eval(state.getSymbolTable());
+            fileNameVal = this.exp.eval(state.getSymbolTable(), state.getHeap());
         } catch (InvalidOperation e) {
             throw new MyException(e.getMessage());
         }
@@ -77,7 +77,7 @@ public class ReadFile implements IStatement {
     }
 
     @Override
-    public ReadFile deepCopy() {
+    public IStatement deepCopy() {
         return new ReadFile(exp.deepCopy(), varName);
     }
 }

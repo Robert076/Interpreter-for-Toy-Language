@@ -3,8 +3,13 @@ package model.programState;
 import model.dataStructures.myStack.*;
 
 import java.io.BufferedReader;
+import java.util.HashSet;
+import java.util.Set;
 
+import MyException.MyException;
 import model.dataStructures.myDictionary.*;
+import model.dataStructures.myFileTable.MyIFileTable;
+import model.dataStructures.myHeap.MyIHeap;
 import model.dataStructures.myList.*;
 import model.values.*;
 import model.statements.*;
@@ -13,17 +18,20 @@ public class ProgramState {
     MyIStack<IStatement> exeStack;
     MyIDictionary<String, Value> symbolTable;
     MyIList<Value> out;
-    MyIDictionary<StringValue, BufferedReader> fileTable;
+    MyIFileTable<StringValue, BufferedReader> fileTable;
+    MyIHeap<Integer, Value> heap;
 
     IStatement originalProgram; // optional but good
 
     public ProgramState(MyIStack<IStatement> _exeStack, MyIDictionary<String, Value> _symbolTable, MyIList<Value> _out,
-            IStatement _originalProgram, MyIDictionary<StringValue, BufferedReader> _fileTable) {
+            IStatement _originalProgram, MyIFileTable<StringValue, BufferedReader> _fileTable,
+            MyIHeap<Integer, Value> _heap) {
         this.exeStack = _exeStack;
         this.symbolTable = _symbolTable;
         this.out = _out;
         this.originalProgram = deepCopy(_originalProgram); // recreate the entire original prg
         this.fileTable = _fileTable;
+        this.heap = _heap;
         this.exeStack.push(_originalProgram);
     }
 
@@ -35,32 +43,33 @@ public class ProgramState {
                 "\n out = " + out + "\n\n+ - - - - - - - - - - - - - - - - - - - - - - - +\n\n";
     }
 
-    // public String toStringLog() throws MyException {
-    // // Logger for program state - assuming a single statement (entire program)
-    // StringBuilder logBuilder = new StringBuilder();
+    public String toStringLog() throws MyException {
+        // Logger for program state - assuming a single statement (entire program)
+        StringBuilder logBuilder = new StringBuilder();
 
-    // logBuilder.append("\n+ - - - - - - - - PROGRAM STATE - - - - - - - - +\n\n");
+        logBuilder.append("\n+ - - - - - - - - PROGRAM STATE - - - - - - - - +\n\n");
 
-    // // Display Execution Stack
-    // logBuilder.append("Execution Stack:\n");
-    // IStatement statement = exeStack.peek();
+        logBuilder.append("Execution Stack:\n");
+        if (!exeStack.isEmpty()) {
+            IStatement statement = exeStack.peek();
 
-    // // Unroll compound statements and add each to logBuilder
-    // while (statement instanceof CompoundStatement) {
-    // CompoundStatement compound = (CompoundStatement) statement;
-    // logBuilder.append(" ").append(compound.getFirst().toString()).append("\n");
-    // statement = compound.getSecond();
-    // }
-    // // Log the last non-compound statement
-    // logBuilder.append(" ").append(statement.toString()).append("\n");
+            while (statement instanceof CompoundStatement) {
+                CompoundStatement compound = (CompoundStatement) statement;
+                logBuilder.append(" ").append(compound.getFirst().toString()).append("\n");
+                statement = compound.getSecond();
+            }
+            logBuilder.append(" ").append(statement.toString()).append("\n");
+        }
 
-    // // Log symbol table and output
-    // logBuilder.append("Symbol Table:\n").append(this.symbolTable).append("\n");
-    // logBuilder.append("Output:\n").append(this.out).append("\n");
+        // Log symbol table and output
+        logBuilder.append("Symbol Table:\n").append(this.symbolTable).append("\n");
+        logBuilder.append("Output:\n").append(this.out).append("\n");
+        logBuilder.append("FileTable:\n").append(this.fileTable).append("\n");
+        logBuilder.append("Heap:\n").append(this.heap).append("\n");
 
-    // logBuilder.append("+ - - - - - - - - - - - - - - - - - - - - - - - +\n\n");
-    // return logBuilder.toString();
-    // }
+        logBuilder.append("+ - - - - - - - - - - - - - - - - - - - - - - - +\n\n");
+        return logBuilder.toString();
+    }
 
     public MyIStack<IStatement> getExeStack() {
         return this.exeStack;
@@ -74,8 +83,12 @@ public class ProgramState {
         return this.out;
     }
 
-    public MyIDictionary<StringValue, BufferedReader> getFileTable() {
+    public MyIFileTable<StringValue, BufferedReader> getFileTable() {
         return this.fileTable;
+    }
+
+    public MyIHeap<Integer, Value> getHeap() {
+        return this.heap;
     }
 
     public void setExeStack(MyIStack<IStatement> _exeStack) {
@@ -92,6 +105,16 @@ public class ProgramState {
 
     public IStatement deepCopy(IStatement stmt) {
         return stmt; // todo
+    }
+
+    public Set<Integer> getUsedAddresses() {
+        Set<Integer> usedAddresses = new HashSet<>();
+        for (Value val : this.symbolTable.getValues()) {
+            if (val instanceof RefValue) {
+                usedAddresses.add(((RefValue) val).getAddr());
+            }
+        }
+        return usedAddresses;
     }
 
     public void init() {
