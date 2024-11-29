@@ -1,0 +1,587 @@
+
++ - - - - - - - - PROGRAM STATE - - - - - - - - +
+
+Execution Stack:
+ VarDeclStatement{name = 'v', type = IntType}
+ AssignmentStatement{v = ValueExp{val = 5}}
+ while(RelationalExpression(VariableExpression{id = v} GE ValueExp{val = 0})) {CompoundStatement{PrintStatement{VariableExpression{id = v}};AssignmentStatement{v = ArithmeticExpression{leftExp = VariableExpression{id = v} , op = MINUS , rightExp = ValueExp{val = 1}}}}}
+ PrintStatement{VariableExpression{id = v}}
+Symbol Table:
+Empty
+
+Output:
+[]
+FileTable:
+Empty
+
+Heap:
+Empty heap
++ - - - - - - - - - - - - - - - - - - - - - - - +
+
+
+
++ - - - - - - - - PROGRAM STATE - - - - - - - - +
+
+Execution Stack:
+ VarDeclStatement{name = 'v', type = IntType}
+Symbol Table:
+Empty
+
+Output:
+[]
+FileTable:
+Empty
+
+Heap:
+Empty heap
++ - - - - - - - - - - - - - - - - - - - - - - - +
+
+
+
++ - - - - - - - - PROGRAM STATE - - - - - - - - +
+
+Execution Stack:
+ AssignmentStatement{v = ValueExp{val = 5}}
+ while(RelationalExpression(VariableExpression{id = v} GE ValueExp{val = 0})) {CompoundStatement{PrintStatement{VariableExpression{id = v}};AssignmentStatement{v = ArithmeticExpression{leftExp = VariableExpression{id = v} , op = MINUS , rightExp = ValueExp{val = 1}}}}}
+ PrintStatement{VariableExpression{id = v}}
+Symbol Table:
+v -> 0, 
+
+Output:
+[]
+FileTable:
+Empty
+
+Heap:
+Empty heap
++ - - - - - - - - - - - - - - - - - - - - - - - +
+
+
+
++ - - - - - - - - PROGRAM STATE - - - - - - - - +
+
+Execution Stack:
+ AssignmentStatement{v = ValueExp{val = 5}}
+Symbol Table:
+v -> 0, 
+
+Output:
+[]
+FileTable:
+Empty
+
+Heap:
+Empty heap
++ - - - - - - - - - - - - - - - - - - - - - - - +
+
+
+
++ - - - - - - - - PROGRAM STATE - - - - - - - - +
+
+Execution Stack:
+ while(RelationalExpression(VariableExpression{id = v} GE ValueExp{val = 0})) {CompoundStatement{PrintStatement{VariableExpression{id = v}};AssignmentStatement{v = ArithmeticExpression{leftExp = VariableExpression{id = v} , op = MINUS , rightExp = ValueExp{val = 1}}}}}
+ PrintStatement{VariableExpression{id = v}}
+Symbol Table:
+v -> 5, 
+
+Output:
+[]
+FileTable:
+Empty
+
+Heap:
+Empty heap
++ - - - - - - - - - - - - - - - - - - - - - - - +
+
+
+
++ - - - - - - - - PROGRAM STATE - - - - - - - - +
+
+Execution Stack:
+ while(RelationalExpression(VariableExpression{id = v} GE ValueExp{val = 0})) {CompoundStatement{PrintStatement{VariableExpression{id = v}};AssignmentStatement{v = ArithmeticExpression{leftExp = VariableExpression{id = v} , op = MINUS , rightExp = ValueExp{val = 1}}}}}
+Symbol Table:
+v -> 5, 
+
+Output:
+[]
+FileTable:
+Empty
+
+Heap:
+Empty heap
++ - - - - - - - - - - - - - - - - - - - - - - - +
+
+
+
++ - - - - - - - - PROGRAM STATE - - - - - - - - +
+
+Execution Stack:
+ PrintStatement{VariableExpression{id = v}}
+ AssignmentStatement{v = ArithmeticExpression{leftExp = VariableExpression{id = v} , op = MINUS , rightExp = ValueExp{val = 1}}}
+Symbol Table:
+v -> 5, 
+
+Output:
+[]
+FileTable:
+Empty
+
+Heap:
+Empty heap
++ - - - - - - - - - - - - - - - - - - - - - - - +
+
+
+
++ - - - - - - - - PROGRAM STATE - - - - - - - - +
+
+Execution Stack:
+ PrintStatement{VariableExpression{id = v}}
+Symbol Table:
+v -> 5, 
+
+Output:
+[]
+FileTable:
+Empty
+
+Heap:
+Empty heap
++ - - - - - - - - - - - - - - - - - - - - - - - +
+
+
+
++ - - - - - - - - PROGRAM STATE - - - - - - - - +
+
+Execution Stack:
+ AssignmentStatement{v = ArithmeticExpression{leftExp = VariableExpression{id = v} , op = MINUS , rightExp = ValueExp{val = 1}}}
+Symbol Table:
+v -> 5, 
+
+Output:
+[5]
+FileTable:
+Empty
+
+Heap:
+Empty heap
++ - - - - - - - - - - - - - - - - - - - - - - - +
+
+
+
++ - - - - - - - - PROGRAM STATE - - - - - - - - +
+
+Execution Stack:
+ while(RelationalExpression(VariableExpression{id = v} GE ValueExp{val = 0})) {CompoundStatement{PrintStatement{VariableExpression{id = v}};AssignmentStatement{v = ArithmeticExpression{leftExp = VariableExpression{id = v} , op = MINUS , rightExp = ValueExp{val = 1}}}}}
+Symbol Table:
+v -> 4, 
+
+Output:
+[5]
+FileTable:
+Empty
+
+Heap:
+Empty heap
++ - - - - - - - - - - - - - - - - - - - - - - - +
+
+
+
++ - - - - - - - - PROGRAM STATE - - - - - - - - +
+
+Execution Stack:
+ PrintStatement{VariableExpression{id = v}}
+ AssignmentStatement{v = ArithmeticExpression{leftExp = VariableExpression{id = v} , op = MINUS , rightExp = ValueExp{val = 1}}}
+Symbol Table:
+v -> 4, 
+
+Output:
+[5]
+FileTable:
+Empty
+
+Heap:
+Empty heap
++ - - - - - - - - - - - - - - - - - - - - - - - +
+
+
+
++ - - - - - - - - PROGRAM STATE - - - - - - - - +
+
+Execution Stack:
+ PrintStatement{VariableExpression{id = v}}
+Symbol Table:
+v -> 4, 
+
+Output:
+[5]
+FileTable:
+Empty
+
+Heap:
+Empty heap
++ - - - - - - - - - - - - - - - - - - - - - - - +
+
+
+
++ - - - - - - - - PROGRAM STATE - - - - - - - - +
+
+Execution Stack:
+ AssignmentStatement{v = ArithmeticExpression{leftExp = VariableExpression{id = v} , op = MINUS , rightExp = ValueExp{val = 1}}}
+Symbol Table:
+v -> 4, 
+
+Output:
+[5, 4]
+FileTable:
+Empty
+
+Heap:
+Empty heap
++ - - - - - - - - - - - - - - - - - - - - - - - +
+
+
+
++ - - - - - - - - PROGRAM STATE - - - - - - - - +
+
+Execution Stack:
+ while(RelationalExpression(VariableExpression{id = v} GE ValueExp{val = 0})) {CompoundStatement{PrintStatement{VariableExpression{id = v}};AssignmentStatement{v = ArithmeticExpression{leftExp = VariableExpression{id = v} , op = MINUS , rightExp = ValueExp{val = 1}}}}}
+Symbol Table:
+v -> 3, 
+
+Output:
+[5, 4]
+FileTable:
+Empty
+
+Heap:
+Empty heap
++ - - - - - - - - - - - - - - - - - - - - - - - +
+
+
+
++ - - - - - - - - PROGRAM STATE - - - - - - - - +
+
+Execution Stack:
+ PrintStatement{VariableExpression{id = v}}
+ AssignmentStatement{v = ArithmeticExpression{leftExp = VariableExpression{id = v} , op = MINUS , rightExp = ValueExp{val = 1}}}
+Symbol Table:
+v -> 3, 
+
+Output:
+[5, 4]
+FileTable:
+Empty
+
+Heap:
+Empty heap
++ - - - - - - - - - - - - - - - - - - - - - - - +
+
+
+
++ - - - - - - - - PROGRAM STATE - - - - - - - - +
+
+Execution Stack:
+ PrintStatement{VariableExpression{id = v}}
+Symbol Table:
+v -> 3, 
+
+Output:
+[5, 4]
+FileTable:
+Empty
+
+Heap:
+Empty heap
++ - - - - - - - - - - - - - - - - - - - - - - - +
+
+
+
++ - - - - - - - - PROGRAM STATE - - - - - - - - +
+
+Execution Stack:
+ AssignmentStatement{v = ArithmeticExpression{leftExp = VariableExpression{id = v} , op = MINUS , rightExp = ValueExp{val = 1}}}
+Symbol Table:
+v -> 3, 
+
+Output:
+[5, 4, 3]
+FileTable:
+Empty
+
+Heap:
+Empty heap
++ - - - - - - - - - - - - - - - - - - - - - - - +
+
+
+
++ - - - - - - - - PROGRAM STATE - - - - - - - - +
+
+Execution Stack:
+ while(RelationalExpression(VariableExpression{id = v} GE ValueExp{val = 0})) {CompoundStatement{PrintStatement{VariableExpression{id = v}};AssignmentStatement{v = ArithmeticExpression{leftExp = VariableExpression{id = v} , op = MINUS , rightExp = ValueExp{val = 1}}}}}
+Symbol Table:
+v -> 2, 
+
+Output:
+[5, 4, 3]
+FileTable:
+Empty
+
+Heap:
+Empty heap
++ - - - - - - - - - - - - - - - - - - - - - - - +
+
+
+
++ - - - - - - - - PROGRAM STATE - - - - - - - - +
+
+Execution Stack:
+ PrintStatement{VariableExpression{id = v}}
+ AssignmentStatement{v = ArithmeticExpression{leftExp = VariableExpression{id = v} , op = MINUS , rightExp = ValueExp{val = 1}}}
+Symbol Table:
+v -> 2, 
+
+Output:
+[5, 4, 3]
+FileTable:
+Empty
+
+Heap:
+Empty heap
++ - - - - - - - - - - - - - - - - - - - - - - - +
+
+
+
++ - - - - - - - - PROGRAM STATE - - - - - - - - +
+
+Execution Stack:
+ PrintStatement{VariableExpression{id = v}}
+Symbol Table:
+v -> 2, 
+
+Output:
+[5, 4, 3]
+FileTable:
+Empty
+
+Heap:
+Empty heap
++ - - - - - - - - - - - - - - - - - - - - - - - +
+
+
+
++ - - - - - - - - PROGRAM STATE - - - - - - - - +
+
+Execution Stack:
+ AssignmentStatement{v = ArithmeticExpression{leftExp = VariableExpression{id = v} , op = MINUS , rightExp = ValueExp{val = 1}}}
+Symbol Table:
+v -> 2, 
+
+Output:
+[5, 4, 3, 2]
+FileTable:
+Empty
+
+Heap:
+Empty heap
++ - - - - - - - - - - - - - - - - - - - - - - - +
+
+
+
++ - - - - - - - - PROGRAM STATE - - - - - - - - +
+
+Execution Stack:
+ while(RelationalExpression(VariableExpression{id = v} GE ValueExp{val = 0})) {CompoundStatement{PrintStatement{VariableExpression{id = v}};AssignmentStatement{v = ArithmeticExpression{leftExp = VariableExpression{id = v} , op = MINUS , rightExp = ValueExp{val = 1}}}}}
+Symbol Table:
+v -> 1, 
+
+Output:
+[5, 4, 3, 2]
+FileTable:
+Empty
+
+Heap:
+Empty heap
++ - - - - - - - - - - - - - - - - - - - - - - - +
+
+
+
++ - - - - - - - - PROGRAM STATE - - - - - - - - +
+
+Execution Stack:
+ PrintStatement{VariableExpression{id = v}}
+ AssignmentStatement{v = ArithmeticExpression{leftExp = VariableExpression{id = v} , op = MINUS , rightExp = ValueExp{val = 1}}}
+Symbol Table:
+v -> 1, 
+
+Output:
+[5, 4, 3, 2]
+FileTable:
+Empty
+
+Heap:
+Empty heap
++ - - - - - - - - - - - - - - - - - - - - - - - +
+
+
+
++ - - - - - - - - PROGRAM STATE - - - - - - - - +
+
+Execution Stack:
+ PrintStatement{VariableExpression{id = v}}
+Symbol Table:
+v -> 1, 
+
+Output:
+[5, 4, 3, 2]
+FileTable:
+Empty
+
+Heap:
+Empty heap
++ - - - - - - - - - - - - - - - - - - - - - - - +
+
+
+
++ - - - - - - - - PROGRAM STATE - - - - - - - - +
+
+Execution Stack:
+ AssignmentStatement{v = ArithmeticExpression{leftExp = VariableExpression{id = v} , op = MINUS , rightExp = ValueExp{val = 1}}}
+Symbol Table:
+v -> 1, 
+
+Output:
+[5, 4, 3, 2, 1]
+FileTable:
+Empty
+
+Heap:
+Empty heap
++ - - - - - - - - - - - - - - - - - - - - - - - +
+
+
+
++ - - - - - - - - PROGRAM STATE - - - - - - - - +
+
+Execution Stack:
+ while(RelationalExpression(VariableExpression{id = v} GE ValueExp{val = 0})) {CompoundStatement{PrintStatement{VariableExpression{id = v}};AssignmentStatement{v = ArithmeticExpression{leftExp = VariableExpression{id = v} , op = MINUS , rightExp = ValueExp{val = 1}}}}}
+Symbol Table:
+v -> 0, 
+
+Output:
+[5, 4, 3, 2, 1]
+FileTable:
+Empty
+
+Heap:
+Empty heap
++ - - - - - - - - - - - - - - - - - - - - - - - +
+
+
+
++ - - - - - - - - PROGRAM STATE - - - - - - - - +
+
+Execution Stack:
+ PrintStatement{VariableExpression{id = v}}
+ AssignmentStatement{v = ArithmeticExpression{leftExp = VariableExpression{id = v} , op = MINUS , rightExp = ValueExp{val = 1}}}
+Symbol Table:
+v -> 0, 
+
+Output:
+[5, 4, 3, 2, 1]
+FileTable:
+Empty
+
+Heap:
+Empty heap
++ - - - - - - - - - - - - - - - - - - - - - - - +
+
+
+
++ - - - - - - - - PROGRAM STATE - - - - - - - - +
+
+Execution Stack:
+ PrintStatement{VariableExpression{id = v}}
+Symbol Table:
+v -> 0, 
+
+Output:
+[5, 4, 3, 2, 1]
+FileTable:
+Empty
+
+Heap:
+Empty heap
++ - - - - - - - - - - - - - - - - - - - - - - - +
+
+
+
++ - - - - - - - - PROGRAM STATE - - - - - - - - +
+
+Execution Stack:
+ AssignmentStatement{v = ArithmeticExpression{leftExp = VariableExpression{id = v} , op = MINUS , rightExp = ValueExp{val = 1}}}
+Symbol Table:
+v -> 0, 
+
+Output:
+[5, 4, 3, 2, 1, 0]
+FileTable:
+Empty
+
+Heap:
+Empty heap
++ - - - - - - - - - - - - - - - - - - - - - - - +
+
+
+
++ - - - - - - - - PROGRAM STATE - - - - - - - - +
+
+Execution Stack:
+ while(RelationalExpression(VariableExpression{id = v} GE ValueExp{val = 0})) {CompoundStatement{PrintStatement{VariableExpression{id = v}};AssignmentStatement{v = ArithmeticExpression{leftExp = VariableExpression{id = v} , op = MINUS , rightExp = ValueExp{val = 1}}}}}
+Symbol Table:
+v -> -1, 
+
+Output:
+[5, 4, 3, 2, 1, 0]
+FileTable:
+Empty
+
+Heap:
+Empty heap
++ - - - - - - - - - - - - - - - - - - - - - - - +
+
+
+
++ - - - - - - - - PROGRAM STATE - - - - - - - - +
+
+Execution Stack:
+ PrintStatement{VariableExpression{id = v}}
+Symbol Table:
+v -> -1, 
+
+Output:
+[5, 4, 3, 2, 1, 0]
+FileTable:
+Empty
+
+Heap:
+Empty heap
++ - - - - - - - - - - - - - - - - - - - - - - - +
+
+
+
++ - - - - - - - - PROGRAM STATE - - - - - - - - +
+
+Execution Stack:
+Symbol Table:
+v -> -1, 
+
+Output:
+[5, 4, 3, 2, 1, 0, -1]
+FileTable:
+Empty
+
+Heap:
+Empty heap
++ - - - - - - - - - - - - - - - - - - - - - - - +
+
+

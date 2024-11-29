@@ -1,0 +1,236 @@
+
++ - - - - - - - - PROGRAM STATE - - - - - - - - +
+
+Execution Stack:
+ VarDeclStatement{name = 'v', type = Ref(IntType)}
+ HeapAlloc(v, ValueExp{val = 20})
+ VarDeclStatement{name = 'a', type = Ref(Ref(IntType))}
+ HeapAlloc(a, VariableExpression{id = v})
+ HeapAlloc(v, ValueExp{val = 30})
+ PrintStatement{readHeap(readHeap(VariableExpression{id = a}))}
+Symbol Table:
+Empty
+
+Output:
+[]
+FileTable:
+Empty
+
+Heap:
+Empty heap
++ - - - - - - - - - - - - - - - - - - - - - - - +
+
+
+
++ - - - - - - - - PROGRAM STATE - - - - - - - - +
+
+Execution Stack:
+ VarDeclStatement{name = 'v', type = Ref(IntType)}
+Symbol Table:
+Empty
+
+Output:
+[]
+FileTable:
+Empty
+
+Heap:
+Empty heap
++ - - - - - - - - - - - - - - - - - - - - - - - +
+
+
+
++ - - - - - - - - PROGRAM STATE - - - - - - - - +
+
+Execution Stack:
+ HeapAlloc(v, ValueExp{val = 20})
+ VarDeclStatement{name = 'a', type = Ref(Ref(IntType))}
+ HeapAlloc(a, VariableExpression{id = v})
+ HeapAlloc(v, ValueExp{val = 30})
+ PrintStatement{readHeap(readHeap(VariableExpression{id = a}))}
+Symbol Table:
+v -> RefValue(0, IntType), 
+
+Output:
+[]
+FileTable:
+Empty
+
+Heap:
+Empty heap
++ - - - - - - - - - - - - - - - - - - - - - - - +
+
+
+
++ - - - - - - - - PROGRAM STATE - - - - - - - - +
+
+Execution Stack:
+ HeapAlloc(v, ValueExp{val = 20})
+Symbol Table:
+v -> RefValue(0, IntType), 
+
+Output:
+[]
+FileTable:
+Empty
+
+Heap:
+Empty heap
++ - - - - - - - - - - - - - - - - - - - - - - - +
+
+
+
++ - - - - - - - - PROGRAM STATE - - - - - - - - +
+
+Execution Stack:
+ VarDeclStatement{name = 'a', type = Ref(Ref(IntType))}
+ HeapAlloc(a, VariableExpression{id = v})
+ HeapAlloc(v, ValueExp{val = 30})
+ PrintStatement{readHeap(readHeap(VariableExpression{id = a}))}
+Symbol Table:
+v -> RefValue(1, IntType), 
+
+Output:
+[]
+FileTable:
+Empty
+
+Heap:
+1 -> 20
++ - - - - - - - - - - - - - - - - - - - - - - - +
+
+
+
++ - - - - - - - - PROGRAM STATE - - - - - - - - +
+
+Execution Stack:
+ VarDeclStatement{name = 'a', type = Ref(Ref(IntType))}
+Symbol Table:
+v -> RefValue(1, IntType), 
+
+Output:
+[]
+FileTable:
+Empty
+
+Heap:
+1 -> 20
++ - - - - - - - - - - - - - - - - - - - - - - - +
+
+
+
++ - - - - - - - - PROGRAM STATE - - - - - - - - +
+
+Execution Stack:
+ HeapAlloc(a, VariableExpression{id = v})
+ HeapAlloc(v, ValueExp{val = 30})
+ PrintStatement{readHeap(readHeap(VariableExpression{id = a}))}
+Symbol Table:
+a -> RefValue(0, Ref(IntType)), v -> RefValue(1, IntType), 
+
+Output:
+[]
+FileTable:
+Empty
+
+Heap:
+1 -> 20
++ - - - - - - - - - - - - - - - - - - - - - - - +
+
+
+
++ - - - - - - - - PROGRAM STATE - - - - - - - - +
+
+Execution Stack:
+ HeapAlloc(a, VariableExpression{id = v})
+Symbol Table:
+a -> RefValue(0, Ref(IntType)), v -> RefValue(1, IntType), 
+
+Output:
+[]
+FileTable:
+Empty
+
+Heap:
+1 -> 20
++ - - - - - - - - - - - - - - - - - - - - - - - +
+
+
+
++ - - - - - - - - PROGRAM STATE - - - - - - - - +
+
+Execution Stack:
+ HeapAlloc(v, ValueExp{val = 30})
+ PrintStatement{readHeap(readHeap(VariableExpression{id = a}))}
+Symbol Table:
+a -> RefValue(2, Ref(IntType)), v -> RefValue(1, IntType), 
+
+Output:
+[]
+FileTable:
+Empty
+
+Heap:
+1 -> 20
+2 -> RefValue(1, IntType)
++ - - - - - - - - - - - - - - - - - - - - - - - +
+
+
+
++ - - - - - - - - PROGRAM STATE - - - - - - - - +
+
+Execution Stack:
+ HeapAlloc(v, ValueExp{val = 30})
+Symbol Table:
+a -> RefValue(2, Ref(IntType)), v -> RefValue(1, IntType), 
+
+Output:
+[]
+FileTable:
+Empty
+
+Heap:
+1 -> 20
+2 -> RefValue(1, IntType)
++ - - - - - - - - - - - - - - - - - - - - - - - +
+
+
+
++ - - - - - - - - PROGRAM STATE - - - - - - - - +
+
+Execution Stack:
+ PrintStatement{readHeap(readHeap(VariableExpression{id = a}))}
+Symbol Table:
+a -> RefValue(2, Ref(IntType)), v -> RefValue(3, IntType), 
+
+Output:
+[]
+FileTable:
+Empty
+
+Heap:
+1 -> 20
+2 -> RefValue(1, IntType)
+3 -> 30
++ - - - - - - - - - - - - - - - - - - - - - - - +
+
+
+
++ - - - - - - - - PROGRAM STATE - - - - - - - - +
+
+Execution Stack:
+Symbol Table:
+a -> RefValue(2, Ref(IntType)), v -> RefValue(3, IntType), 
+
+Output:
+[20]
+FileTable:
+Empty
+
+Heap:
+1 -> 20
+2 -> RefValue(1, IntType)
+3 -> 30
++ - - - - - - - - - - - - - - - - - - - - - - - +
+
+
