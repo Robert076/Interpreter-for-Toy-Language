@@ -1,25 +1,25 @@
 package model.programState;
 
-import model.dataStructures.myStack.*;
-
-import java.io.BufferedReader;
-import java.util.HashSet;
-import java.util.Set;
-
+import MyException.InvalidOperation;
 import MyException.MyException;
+import java.io.BufferedReader;
+import java.util.concurrent.atomic.AtomicInteger;
 import model.dataStructures.myDictionary.*;
 import model.dataStructures.myFileTable.MyIFileTable;
 import model.dataStructures.myHeap.MyIHeap;
 import model.dataStructures.myList.*;
-import model.values.*;
+import model.dataStructures.myStack.*;
 import model.statements.*;
+import model.values.*;
 
 public class ProgramState {
-    MyIStack<IStatement> exeStack;
-    MyIDictionary<String, Value> symbolTable;
-    MyIList<Value> out;
-    MyIFileTable<StringValue, BufferedReader> fileTable;
-    MyIHeap<Integer, Value> heap;
+    private MyIStack<IStatement> exeStack;
+    private MyIDictionary<String, Value> symbolTable;
+    private MyIList<Value> out;
+    private MyIFileTable<StringValue, BufferedReader> fileTable;
+    private MyIHeap<Integer, Value> heap;
+    private final Integer id;
+    private static final AtomicInteger idInc = new AtomicInteger(0);
 
     IStatement originalProgram; // optional but good
 
@@ -33,11 +33,25 @@ public class ProgramState {
         this.fileTable = _fileTable;
         this.heap = _heap;
         this.exeStack.push(_originalProgram);
+        this.id = idInc.getAndIncrement();
+    }
+
+    public Boolean isNotCompleted() {
+        return !(this.exeStack.isEmpty());
+    }
+
+    public ProgramState oneStepExecution() throws MyException, InvalidOperation {
+        if (this.exeStack.isEmpty()) {
+            throw new MyException("Execution stack is empty!");
+        }
+        IStatement currentStatement = this.exeStack.pop();
+        return currentStatement.execute(this);
     }
 
     @Override
     public String toString() {
         return "+ - - - - - - - - PROGRAM STATE - - - - - - - - +\n\n" +
+                " ID = " + this.id +
                 " exeStack = " + this.exeStack +
                 "\n\n symTable = " + this.symbolTable +
                 "\n out = " + out + "\n\n+ - - - - - - - - - - - - - - - - - - - - - - - +\n\n";
@@ -48,7 +62,7 @@ public class ProgramState {
         StringBuilder logBuilder = new StringBuilder();
 
         logBuilder.append("\n+ - - - - - - - - PROGRAM STATE - - - - - - - - +\n\n");
-
+        logBuilder.append("ID: ").append(id).append("\n");
         logBuilder.append("Execution Stack:\n");
         if (!exeStack.isEmpty()) {
             IStatement statement = exeStack.peek();
@@ -105,16 +119,6 @@ public class ProgramState {
 
     public IStatement deepCopy(IStatement stmt) {
         return stmt; // todo
-    }
-
-    public Set<Integer> getUsedAddresses() {
-        Set<Integer> usedAddresses = new HashSet<>();
-        for (Value val : this.symbolTable.getValues()) {
-            if (val instanceof RefValue) {
-                usedAddresses.add(((RefValue) val).getAddr());
-            }
-        }
-        return usedAddresses;
     }
 
     public void init() {
