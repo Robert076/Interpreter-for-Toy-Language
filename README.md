@@ -20,7 +20,6 @@ It supports execution of programs written in a custom-defined language, demonstr
 - 📂 **File Operations**: Open, read, write, and close files using Java I/O streams
 - 🧬 **Functional Programming**: Recent labs applied high-order functions for modular, side-effect-free code
 - 🧪 **Type Checking**: Static type checking before program execution
-- 🚨 **Robust Exception Handling**: Custom exceptions for various runtime errors
 - 🖼️ **Graphical User Interface (GUI)**: Interactive GUI built with JavaFX
 
 ---
